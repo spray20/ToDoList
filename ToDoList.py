@@ -57,13 +57,31 @@ def add_task():
      task_y += 35
 
      task_label.bind("<Button-1>", complete_task)
+
      tasks_list.append(task_label)
 
 
-
-
 def complete_task(event):
-    event.widget.config(font=("Arial", 14, "overstrike"), fg = "gray")
+    label = event.widget
+
+    if label["fg"] == "gray":
+        label.config(font=("Arial", 14), fg="black")
+    else:
+        label.config(font=("Arial", 14, "overstrike"), fg="gray")
+
+
+
+       
+       
+       
+    
+       
+       
+
+
+
+
+   
     
 
 add_task_button = tk.Button(
@@ -95,9 +113,6 @@ delate_task_button = tk.Button(
     command=delete_task
 )
 delate_task_button.place(x=350,y=500)
-
-
-
 
 
 root.mainloop()
